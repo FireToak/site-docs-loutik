@@ -1,0 +1,8 @@
+{
+  "label": "Socle Infrastructure",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation du socle de mon infrastructure."
+  }
+}
