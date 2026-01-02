@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Bienvenue 👋
 
+---
+
+## 📖 Introduction
+
 Bienvenue dans le centre de connaissances du projet **Loutik**.
 Cette section regroupe l'ensemble de ma documentation technique, de mes déploiements d'infrastructure à mes fiches de révisions théoriques.
 
