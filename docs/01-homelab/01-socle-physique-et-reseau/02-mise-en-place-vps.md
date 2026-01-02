@@ -30,7 +30,7 @@ Objectifs principaux :
 
 > ⚠️ _Cette étape n’est pas toujours nécessaire sur les VPS préinstallés, mais reste valable pour une installation manuelle ou un reprovisionnement._
 
-### 1. Paramètres d’installation recommandés
+1. **Paramètres d’installation recommandés**
 
 - **Mot de passe root** : généré par Bitwarden
 - **Utilisateur principal** : généré par Bitwarden

@@ -40,6 +40,18 @@ const config = {
     locales: ['fr'],
   },
 
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      ({
+        hashed: true,
+        language: ["fr"],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      }),
+    ],
+  ],
+
   presets: [
     [
       'classic',

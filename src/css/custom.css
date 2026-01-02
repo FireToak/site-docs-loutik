@@ -4,6 +4,22 @@
  * work well for content-centric websites.
  */
 
+/* Titre (H1) */
+.markdown h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Sous-titres (H2) */
+.markdown h2 {
+  font-size: 1.5rem; /* ~ 24px */
+}
+
+/* Sous-sous-titres (H3) */
+.markdown h3 {
+  font-size: 1.25rem; /* ~ 20px */
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #3b82f6;
