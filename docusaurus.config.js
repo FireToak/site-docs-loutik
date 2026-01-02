@@ -107,9 +107,19 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/firetoak',
             position: 'right',
+            className: 'header-github-link',
+          },
+          {
+            href: 'https://www.linkedin.com/in/louismedo/',
+            position: 'right',
+            className: 'header-linkedin-link',
+          },
+          {
+            href: 'https://discord.com/invite/yqQJhYM9tK',
+            position: 'right',
+            className: 'header-discord-link',
           },
         ],
       },
