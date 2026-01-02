@@ -1,6 +1,6 @@
 {
   "label": "Homelab",
-  "position": 1,
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "Toutes les documentations concernant mon homelab."
