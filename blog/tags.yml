@@ -1,19 +1,116 @@
-devops:
-  label: DevOps
-  permalink: /devops
-  description: Articles sur l'automatisation, CI/CD, et les pratiques de développement et opérations.
+# -------------------------------------------------------------------------
+# TECHNOLOGIES (Le "Quoi")
+# -------------------------------------------------------------------------
+proxmox:
+  label: "Proxmox VE"
+  permalink: /blog/tags/proxmox
+  description: "Articles concernant la virtualisation et la gestion de clusters avec Proxmox."
 
-cybersecurite:
-  label: Cybersécurité
-  permalink: /cybersecurite
-  description: Articles sur les notions, événements dans le monde la cybersécurité.
+kubernetes:
+  label: "Kubernetes"
+  permalink: /blog/tags/kubernetes
+  description: "Orchestration de conteneurs, pods et services."
+
+k3s:
+  label: "K3s"
+  permalink: /blog/tags/k3s
+  description: "Distribution Kubernetes légère orientée Edge et IoT."
+
+nginx:
+  label: "NGINX"
+  permalink: /blog/tags/nginx
+  description: "Configuration de serveur web et reverse proxy."
+
+crowdsec:
+  label: "CrowdSec"
+  permalink: /blog/tags/crowdsec
+  description: "Sécurité collaborative, IPS et protection WAF."
+
+authentik:
+  label: "Authentik"
+  permalink: /blog/tags/authentik
+  description: "Gestion des identités (IAM) et authentification centralisée."
+
+linux:
+  label: "Linux / Bash"
+  permalink: /blog/tags/linux
+  description: "Administration système Linux et scripting Bash."
+
+git:
+  label: "Git & GitLab"
+  permalink: /blog/tags/git
+  description: "Gestion de versions et workflows CI/CD."
+
+docusaurus:
+  label: "Docusaurus"
+  permalink: /blog/tags/docusaurus
+  description: "Tout savoir sur ce générateur de site statique."
+
+# -------------------------------------------------------------------------
+# DOMAINES & CONCEPTS (Le "Thème")
+# -------------------------------------------------------------------------
+devops:
+  label: "DevOps"
+  permalink: /blog/tags/devops
+  description: "Culture, méthodes et outils pour l'automatisation et le déploiement continu."
+
+sysadmin:
+  label: "SysAdmin"
+  permalink: /blog/tags/sysadmin
+  description: "Administration système, gestion des serveurs et maintenance."
+
+reseau:
+  label: "Réseau"
+  permalink: /blog/tags/reseau
+  description: "Protocoles, routage, DNS et architecture réseau."
+
+securite:
+  label: "Cybersécurité"
+  permalink: /blog/tags/securite
+  description: "Bonnes pratiques de durcissement (hardening) et protection des infrastructures."
 
 homelab:
-  label: Homelab
-  permalink: /homelab
-  description: Projets de serveurs domestiques et environnements de test.
+  label: "Homelab"
+  permalink: /blog/tags/homelab
+  description: "Projets personnels et expérimentations en environnement domestique."
 
-container:
-  label: Container
-  permalink: /container
-  description: Docker, Kubernetes et technologies de conteneurisation.
+finops:
+  label: "FinOps"
+  permalink: /blog/tags/finops
+  description: "Optimisation des coûts et des ressources dans le cloud."
+
+# -------------------------------------------------------------------------
+# TYPES DE CONTENU (Le "Format")
+# -------------------------------------------------------------------------
+tutoriel:
+  label: "Tutoriel"
+  permalink: /blog/tags/tutoriel
+  description: "Guides pas à pas pour installer ou configurer une solution."
+
+troubleshooting:
+  label: "Dépannage"
+  permalink: /blog/tags/troubleshooting
+  description: "Résolution de bugs et retours d'expérience sur des erreurs rencontrées."
+
+veille:
+  label: "Veille Techno"
+  permalink: /blog/tags/veille
+  description: "Actualités, découvertes et analyses des nouveautés technologiques."
+
+cheat-sheet:
+  label: "Cheat Sheet"
+  permalink: /blog/tags/cheat-sheet
+  description: "Aide-mémoire et listes de commandes rapides."
+
+# -------------------------------------------------------------------------
+# CONTEXTE BTS SIO (Pour le Jury)
+# -------------------------------------------------------------------------
+bts-sio:
+  label: "BTS SIO"
+  permalink: /blog/tags/bts-sio
+  description: "Articles liés au cursus Services Informatiques aux Organisations."
+
+projet-e4:
+  label: "Projet E4"
+  permalink: /blog/tags/projet-e4
+  description: "Projets relevant de l'épreuve E4 (Parcours SISR)."
