@@ -1,0 +1,19 @@
+devops:
+  label: DevOps
+  permalink: /devops
+  description: Articles sur l'automatisation, CI/CD, et les pratiques de développement et opérations.
+
+cybersecurite:
+  label: Cybersécurité
+  permalink: /cybersecurite
+  description: Articles sur les notions, événements dans le monde la cybersécurité.
+
+homelab:
+  label: Homelab
+  permalink: /homelab
+  description: Projets de serveurs domestiques et environnements de test.
+
+container:
+  label: Container
+  permalink: /container
+  description: Docker, Kubernetes et technologies de conteneurisation.
