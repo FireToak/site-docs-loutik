@@ -2,7 +2,7 @@
 slug: Le meilleur ami de la doc-as-code
 title: Le meilleur ami de la doc-as-code
 authors: louismedo
-tags: [devops]
+tags: [docusaurus, devops, veille]
 ---
 
 Salut ! Aujourd'hui, je vais te parler de **Docusaurus**, un outil qui m'a carrément sauvé la vie pour mes projets de dev. Si tu en as marre de galérer avec la documentation ou que tu cherches un moyen simple de créer un site pour ton projet, tu es au bon endroit.
