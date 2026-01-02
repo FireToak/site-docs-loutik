@@ -2,46 +2,44 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Bienvenue 👋
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Bienvenue dans le centre de connaissances du projet **Loutik**.
+Cette section regroupe l'ensemble de ma documentation technique, de mes déploiements d'infrastructure à mes fiches de révisions théoriques.
 
-## Getting Started
+C'est ici que je documente mon parcours d'étudiant en **BTS SIO** et mes expérimentations DevOps.
 
-Get started by **creating a new site**.
+## 🧭 Comment naviguer ?
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+J'ai structuré cette documentation en trois piliers essentiels pour séparer la théorie de la pratique :
 
-### What you'll need
+### 🚀 1. Homelab (La Pratique)
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+C'est le cœur de mon infrastructure. Vous y trouverez mes procédures d'installation et de configuration "pas à pas" pour mes projets majeurs.
 
-## Generate a new site
+* **Projets phares :** Cluster K3s, Virtualisation Proxmox, WAF Crowdsec.
+* *L'objectif : Montrer comment je construis des environnements fonctionnels.*
 
-Generate a new Docusaurus site using the **classic template**.
+### 📚 2. Notions (La Théorie)
 
-The classic template will automatically be added to your project after you run the command:
+Ici, je vulgarise et synthétise les concepts clés de l'informatique. C'est ma base de connaissance académique.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+* **Sujets abordés :** Modèle OSI, protocoles réseaux, culture DevOps & FinOps.
+* *L'objectif : Comprendre le "pourquoi" derrière la technique.*
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### 🛠️ 3. Boîte à Outils (Les Références)
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Mes "Cheat Sheets" (aide-mémoire) et listes de commandes indispensables.
 
-## Start your site
+* **Contenu :** Syntaxe Kubectl, commandes Git, Markdown, etc.
+* *L'objectif : Retrouver une commande ou une syntaxe en moins de 10 secondes.*
 
-Run the development server:
+---
 
-```bash
-cd my-website
-npm run start
-```
+:::info Pourquoi cette documentation ?
+Pour moi l'approche **"Documentation as Code"** apporte une réel plus value à mes projets. Effectivement, écrire ces guides me permet non seulement de valider mes acquis, mais aussi de partager mes découvertes et de pouvoir reproduire mes infrastructures à tout moment.
+:::
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+:::tip Commencez ici
+Si vous découvrez mon profil, je vous recommande de commencer par la section **Homelab** pour voir mes projets en action !
+:::
