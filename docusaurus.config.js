@@ -77,8 +77,18 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'bts sio, devops, proxmox, k3s, kubernetes, documentation, système, réseau, loutik'},
+        {name: 'description', content: 'Portfolio et documentation technique du projet Loutik. Tutoriels DevOps, installation Proxmox/K3s et fiches de révisions BTS SIO.'},
+        // Open Graph
+        {property: 'og:title', content: 'LoutikDOCS - DevOps & SysAdmin'},
+        {property: 'og:description', content: 'Découvrez mes projets Homelab et mes fiches techniques pour le BTS SIO.'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:url', content: 'https://docs.loutik.fr'},
+        {property: 'og:image', content: 'https://docs.loutik.fr/img/loutikdocs-social-card.jpg'},
+      ],
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/loutikdocs-social-card.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
