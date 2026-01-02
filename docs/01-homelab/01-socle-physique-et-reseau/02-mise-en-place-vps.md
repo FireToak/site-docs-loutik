@@ -1,5 +1,10 @@
 # Mise en place du VPS (gateway01-infomaniak)
 
+**Phase 1 – Socle physique et réseau**
+
+![Logo Loutik](./img/00-logo-loutik.png)
+
+---
 ## Informations générales
 
 - **Date de création :** 01/12/2025
