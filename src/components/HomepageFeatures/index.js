@@ -1,49 +1,45 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '🏗️ Homelab & Infra',
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+      <>Découvre mes déploiements : Cluster K3s, Proxmox et WAF.</>
     ),
+    link: '/docs/category/homelab',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '📚 Notions & Cours',
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+      <>Base de connaissances : Modèle OSI, protocoles et DevOps.</>
     ),
+    link: '/docs/category/notions',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '🛠️ Boîte à Outils',
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+      <>Cheat Sheets pour Git, Kubernetes, Linux et plus.</>
     ),
+    link: '/docs/outils/introduction',
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({title, description, link}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <Heading as="h3" className={styles.featureHeading}>
+          {title}
+        </Heading>
+        <p className="padding-vert--sm">{description}</p>
+        <div className={styles.buttons}>
+            <Link className="button button--secondary button--lg" to={link}>
+                Accéder →
+            </Link>
+        </div>
       </div>
     </div>
   );
