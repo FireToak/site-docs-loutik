@@ -22,7 +22,7 @@ Pour cette infrastructure, j'ai choisi la distribution **K3s**. C'est une versio
 
 L'architecture se divise en deux rôles distincts :
 
-* **Le Master (Control Plane)** : Le cerveau du cluster. Il gère l'API Server, la base de données (SQLite intégrée) et le répartiteur de charge (Traefik inclus par défaut).
+* **Control Plane** : C'est le cerveau du cluster. Il gère l'API Server, la base de données (SQLite intégrée) et le répartiteur de charge (Traefik inclus par défaut).
 * **Les Workers** : Les bras du cluster. Ce sont les nœuds qui exécutent réellement les charges de travail (Pods/Conteneurs).
 
 :::info Pourquoi K3s ?
