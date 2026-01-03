@@ -58,8 +58,8 @@ L'architecture suit les conventions Docusaurus avec une séparation claire entre
 
 1. **Cloner le dépôt :**
 ```bash
-git clone https://github.com/FireToak/docusaurus-docs.git
-cd docusaurus-docs
+git clone https://github.com/FireToak/site-docs-loutik.git
+cd site-docs-loutik
 ```
 
 2. **Installer les dépendances :**
@@ -123,7 +123,7 @@ Le déploiement est entièrement automatisé via **GitHub Actions** (docker-publ
    * `latest` (dernière version)
    * `sha-<commit>` (identifiant du commit)
 
-**Registry des images :** [`ghcr.io/firetoak/docusaurus-docs`](https://github.com/FireToak/docusaurus-docs/pkgs/container/docusaurus-docs)
+**Registry des images :** [`ghcr.io/firetoak/site-docs-loutik`](https://github.com/FireToak/site-docs-loutik/pkgs/container/site-docs-loutik)
 
 ## 🎨 Personnalisation
 
