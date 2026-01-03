@@ -1,3 +1,8 @@
+---
+title: Mise en place de CrowdSec sur gateway01-infomaniak
+description: Procédure de mise en place de CrowdSec sur le VPS gateway01-infomaniak.
+---
+
 # Mise en place de CrowdSec sur gateway01-infomaniak
 
 **Phase 1 – socle physique et réseau**

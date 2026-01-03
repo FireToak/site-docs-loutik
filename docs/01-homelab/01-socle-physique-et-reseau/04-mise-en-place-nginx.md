@@ -1,3 +1,8 @@
+---
+title: Mise en place de NGINX (gateway01-infomaniak)
+description: Procédure de mise en place d'un reverse-proxy NGINX sur le VPS gateway01-infomaniak.
+---
+
 # Mise en place de NGINX (gateway01-infomaniak)
 
 **Phase 1 – Socle physique et réseau**

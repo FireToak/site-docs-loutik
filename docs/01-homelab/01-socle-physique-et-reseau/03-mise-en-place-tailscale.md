@@ -1,3 +1,8 @@
+---
+title: Mise en place de Tailscale sur les gateways
+description: Procédure de configuration d'un réseau VPN maillé Tailscale entre les passerelles du homelab.
+---
+
 # Mise en place de Tailscale sur les gateways
 
 **Phase 1 – Socle physique et réseau**

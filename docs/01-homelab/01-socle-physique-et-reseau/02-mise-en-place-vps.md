@@ -1,3 +1,8 @@
+---
+title: Mise en place du VPS (gateway01-infomaniak)
+description: Procédure de configuration d'un VPS Infomaniak en tant que passerelle sécurisée pour le homelab.
+---
+
 # Mise en place du VPS (gateway01-infomaniak)
 
 **Phase 1 – Socle physique et réseau**
