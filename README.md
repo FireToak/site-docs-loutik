@@ -1,4 +1,4 @@
-Collecting workspace information# 📚 LoutikDOCS - Documentation Technique & Homelab
+# 📚 LoutikDOCS - Documentation Technique & Homelab
 
 Ce dépôt héberge le code source de la documentation technique du projet **LoutikCLOUD**.
 Il s'agit d'un site de documentation moderne et performant, construit avec **Docusaurus**, conteneurisé avec Docker et servi par un serveur Nginx optimisé.
@@ -147,14 +147,6 @@ Les styles globaux sont définis dans custom.css :
 * Variables CSS pour les couleurs primaires (mode clair et sombre)
 * Styles des titres (h1, h2, h3)
 * Icônes personnalisées dans la navbar (GitHub, LinkedIn, Discord)
-
-## 📅 Roadmap / Évolutions futures
-
-* [x] Migration vers Docusaurus v4 (flag `future.v4: true` activé dans docusaurus.config.js)
-* [ ] Amélioration de la section **Boîte à Outils** (ajout de cheat sheets Kubernetes, Linux, Markdown)
-* [ ] Intégration d'un système de commentaires (Giscus ou Utterances)
-* [ ] Ajout de schémas d'architecture interactifs (Mermaid.js)
-* [ ] Mise en place d'un système de versionnement de la documentation
 
 ## 🛠️ Technologies utilisées
 
