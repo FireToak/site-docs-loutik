@@ -1,0 +1,6 @@
+# Ignore de tous les fichiers
+*
+# Excepté les fichiers nécessaires pour le build
+!Dockerfile
+!nginx.conf
+!build/
