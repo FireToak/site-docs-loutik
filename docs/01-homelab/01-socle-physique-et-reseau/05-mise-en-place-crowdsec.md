@@ -165,6 +165,11 @@ sudo tail -f /var/log/nginx/error.log
     - les décisions envoyées au bouncer NGINX
 
 ---
+## Notes
+
+* Pour éviter les faux-positifs avec l'application Outline, une configuration spécifique a été appliquée. Voir le document : **Phase 1 - Post-Mortem - Incident bannissement abusif**.
+
+---
 ## Bibliographie
 
 - [Installation Linux – documentation CrowdSec ](https://docs.crowdsec.net/u/getting_started/installation/linux)
