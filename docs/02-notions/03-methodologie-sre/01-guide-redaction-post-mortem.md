@@ -48,7 +48,8 @@ Un Post-Mortem (ou RCA - *Root Cause Analysis*) est un document rédigé après 
 ---
 
 ## 4. Exemple de Post-Mortem
-```
+
+````MARKDOWN
 # Post-Mortem - Incident de bannissement abusif (Faux-positifs Outline)
 
 **Phase 1 – Socle physique et réseau**
@@ -109,7 +110,7 @@ whitelist:
   expression:
     # Autorise les erreurs 401/403 uniquement sur les routes /api/
     - evt.Line.Raw matches ".* /api/.*" && evt.Line.Raw matches ".* (401|403) .*"
-\```
+```
 > Pensez à redémarrer CrowdSec après la mise en place de la whitelist (`systemctl reload crowdsec`).
 
 ---
@@ -127,4 +128,4 @@ En appliquant cette whitelist, CrowdSec cesse de surveiller les tentatives de br
 
 * **Surveillance :** Les logs d'erreurs 4xx doivent être corrélés avec le type d'application (SPA vs Site statique) lors de la mise en place d'un WAF.
 * **Configuration :** Les parsers CrowdSec nécessitent une attention particulière sur le type des données (Int/String) lors de l'écriture de règles custom (d'où l'utilisation de `evt.Line.Raw` pour la robustesse).
-```
+````
