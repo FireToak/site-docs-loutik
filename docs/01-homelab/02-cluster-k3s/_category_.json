@@ -1,8 +1,0 @@
-{
-  "label": "Phase 2 - Cluster K3s",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "Documentation complète de mon infrastructure Kubernetes légère."
-  }
-}
