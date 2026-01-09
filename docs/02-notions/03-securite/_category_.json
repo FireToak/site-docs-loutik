@@ -1,10 +1,10 @@
 {
-  "label": "Fondamentaux Réseau & Ops",
-  "position": 1,
+  "label": "Sécurité",
+  "position": 3,
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "slug": "fondamentaux-index"
+    "slug": "methodologie-sre-index"
   }
 }

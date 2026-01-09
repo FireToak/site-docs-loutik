@@ -1,10 +1,10 @@
 {
-  "label": "Methodologie SRE",
-  "position": 3,
+  "label": "Système",
+  "position": 2,
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "slug": "methodologie-sre-index"
+    "slug": "systeme-index"
   }
 }

@@ -1,10 +1,10 @@
 {
-  "label": "Technique Réseau & Ops",
-  "position": 2,
+  "label": "Réseau",
+  "position": 1,
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "slug": "technique-index"
+    "slug": "reseau-index"
   }
 }
