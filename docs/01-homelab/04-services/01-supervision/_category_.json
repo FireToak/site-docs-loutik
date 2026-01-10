@@ -1,0 +1,8 @@
+{
+  "label": "Supervision",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Services de supervision et monitoring du homelab"
+  }
+}
