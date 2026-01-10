@@ -49,7 +49,6 @@ Configuration de l'interface réseau pour écouter le trafic sans adresse IP.
 ```bash
 # Ouvre l'éditeur nano pour créer le fichier de configuration systemd
 sudo nano /etc/systemd/network/10-miroir.network
-
 ```
 
 2. Insérer le contenu suivant :
