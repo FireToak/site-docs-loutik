@@ -4,7 +4,7 @@
 
 **Mission 4 : Note de synthèse sur le choix du logiciel de gestion de tickets**
 
-![Logo BTS SIO Lycée Paul-Louis Courier](../img/logoSIO-fb.png)
+![Logo BTS SIO Lycée Paul-Louis Courier](/img/logoSIO-fb.png)
 
 ---
 
