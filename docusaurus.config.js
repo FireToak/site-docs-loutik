@@ -40,6 +40,10 @@ const config = {
     locales: ['fr'],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -50,6 +54,7 @@ const config = {
         explicitSearchResultPath: true,
       }),
     ],
+    '@docusaurus/theme-mermaid',
   ],
 
   presets: [

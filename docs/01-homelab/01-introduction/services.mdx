@@ -1,0 +1,50 @@
+---
+title: Catalogue des Services
+sidebar_position: 2
+description: Vue catégorisée des services du Homelab.
+---
+
+![Logo du projet Loutik](/img/logo_loutik.png)
+
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 🗂️ Catalogue des Services
+
+Voici la répartition des services par domaine d'activité sur le Homelab Loutik.
+
+<Tabs>
+  <TabItem value="infra" label="🏗️ Infrastructure" default>
+
+  | Service | Type | Hôte | Description |
+  | :--- | :--- | :--- | :--- |
+  | **Proxmox VE** | Hyperviseur | Bare Metal | Gestion des VMs et CTs. |
+  | **Cluster K3s** | Orchestrateur | VMs Proxmox | Cluster Kubernetes léger (3 nœuds). |
+  | **TrueNAS** | Stockage | VM | Serveur NAS et partage NFS. |
+
+  </TabItem>
+  <TabItem value="secu" label="🛡️ Réseau & Sécurité">
+
+  | Service | Type | Exposition | Rôle |
+  | :--- | :--- | :--- | :--- |
+  | **Nginx (VPS)** | Reverse Proxy | Publique | Point d'entrée unique (Port 80/443). |
+  | **Crowdsec** | IPS / WAF | Publique | Bloque les attaques avant le VPN. |
+  | **Wireguard** | VPN | Interne | Tunnel sécurisé VPS -> Homelab. |
+
+  </TabItem>
+  <TabItem value="devops" label="🚀 DevOps">
+
+  | Service | URL | Stack | Usage |
+  | :--- | :--- | :--- | :--- |
+  | **GitLab** | `git.loutik.fr` | IaC | Versionning et CI/CD. |
+  | **Grafana** | `supervision.loutik.fr` | monitoring | Surveillance et visualisation des métriques. |
+  | **Prometheus** | `-` | monitoring | Collecte des métriques. |
+  | **Ansible** | `-` | IaC | Automatisation des déploiements. |
+
+  </TabItem>
+</Tabs>
+
+:::tip Info
+L'infrastructure est hybride : le **VPS** filtre le trafic en amont via le tunnel VPN pour protéger les services **On-Premise**.
+:::

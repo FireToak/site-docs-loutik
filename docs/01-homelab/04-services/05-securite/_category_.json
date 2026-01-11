@@ -1,8 +1,0 @@
-{
-  "label": "Sécurité",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "description": "Services de Sécurité du homelab"
-  }
-}
