@@ -1,10 +1,4 @@
 {
   "label": "SRE",
-  "position": 4,
-  "collapsible": true,
-  "collapsed": true,
-  "link": {
-    "type": "generated-index",
-    "slug": "sre-index"
-  }
+  "position": 4
 }

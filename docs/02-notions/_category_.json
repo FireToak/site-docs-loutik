@@ -2,7 +2,7 @@
   "label": "Notions",
   "position": 3,
   "link": {
-    "type": "generated-index",
-    "description": "Toutes les notions utilisées dans mes documentations et apprises en BTS SIO."
+    "type": "doc",
+    "id": "index-notions"
   }
 }

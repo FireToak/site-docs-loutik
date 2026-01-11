@@ -1,10 +1,4 @@
 {
   "label": "Réseau",
-  "position": 1,
-  "collapsible": true,
-  "collapsed": true,
-  "link": {
-    "type": "generated-index",
-    "slug": "reseau-index"
-  }
+  "position": 2
 }
