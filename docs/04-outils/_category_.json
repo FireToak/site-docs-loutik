@@ -1,4 +1,8 @@
 {
-  "label": "Outils",
-  "position": 5
+  "label": "Mes outils",
+  "position": 5,
+  "link": {
+    "type": "doc",
+    "id": "index-outils"
+  }
 }
