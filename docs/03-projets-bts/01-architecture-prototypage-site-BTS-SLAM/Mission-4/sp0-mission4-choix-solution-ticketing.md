@@ -19,9 +19,9 @@
 
 ## Sommaire
 
-* [A. Cahier des charges](#A-Cahier-des-charges)
-* [B. Étude des solutions](#B-Étude-des-solutions)
-* [C. Choix de la solution](#C-Choix-de-la-solution)
+* A. Cahier des charges
+* B. Étude des solutions
+* C. Choix de la solution
 
 ---
 
