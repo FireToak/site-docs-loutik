@@ -1,8 +1,8 @@
 {
-  "label": "Projets BTS",
+  "label": "Projets BTS SIO",
   "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "Toutes les documentations concernant mes projets BTS."
+    "type": "doc",
+    "id": "index-projets"
   }
 }
