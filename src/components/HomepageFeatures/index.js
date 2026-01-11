@@ -9,21 +9,21 @@ const FeatureList = [
     description: (
       <>Découvre mes déploiements : Cluster K3s, Proxmox et WAF.</>
     ),
-    link: '/docs/category/homelab',
+    link: '/docs/category/-homelab',
   },
   {
     title: '📚 Notions & Cours',
     description: (
       <>Base de connaissances : Modèle OSI, protocoles et DevOps.</>
     ),
-    link: '/docs/category/notions',
+    link: '/docs/notions',
   },
   {
     title: '🛠️ Boîte à Outils',
     description: (
       <>Cheat Sheets pour Git, Kubernetes, Linux et plus.</>
     ),
-    link: '/docs/outils/introduction',
+    link: '/docs/outils',
   },
 ];
 
