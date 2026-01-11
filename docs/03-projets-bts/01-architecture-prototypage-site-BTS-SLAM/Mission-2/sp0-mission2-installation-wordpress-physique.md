@@ -4,7 +4,7 @@
 
 **Mission 2 : Paramétrage d'un prototype du serveur Web et FTP pour l'hébergement du site**
 
-![Logo BTS SIO Lycée Paul-Louis Courier](pathname:///img/logoSIO-fb.png)
+![Logo BTS SIO Lycée Paul-Louis Courier](pathname:///img/logo_bts-sio.png)
 
 ---
 
