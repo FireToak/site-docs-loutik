@@ -1,8 +1,8 @@
 {
-  "label": "Architecture de prototypage site BTS SLAM",
+  "label": "Site du BTS SIO",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Architecture de prototypage pour le site web du BTS SLAM"
+    "description": "Dossier dédié aux procédures du contexte : Site du BTS SIO Paul-Louis-Courier"
   }
 }
