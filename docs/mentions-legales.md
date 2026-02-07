@@ -15,7 +15,7 @@ Le présent site est édité par :
 * **Identité :** Louis MEDO
 * **Statut :** Particulier (Étudiant)
 * **Adresse postale :** 37270 Montlouis-sur-Loire, France
-* **Email de contact :** louis.medo@loutik.fr
+* **Email de contact :** louis@loutik.fr
 
 *(En sa qualité d'éditeur non professionnel, Monsieur Louis MEDO est également Directeur de la publication).*
 
