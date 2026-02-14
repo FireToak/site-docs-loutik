@@ -1,5 +1,5 @@
 ---
-title: Cartographie de l'Infrastructure
+title: Flux applicatifs
 description: Représentation visuelle de la topologie réseau et des flux applicatifs.
 sidebar_position: 1
 ---

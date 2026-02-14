@@ -1,5 +1,5 @@
 ---
-title: ADR-001 - Choix de l'hébergeur pour le VPS Gateway
+title: ADR-002 - Plan d'adressage
 sidebar_position: 1
 ---
 
