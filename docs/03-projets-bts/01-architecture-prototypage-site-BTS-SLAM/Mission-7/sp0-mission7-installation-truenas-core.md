@@ -4,7 +4,7 @@
 
 **Mission 7 : Sauvegarde automatique des fichiers du site sur un serveur NAS et sécurisation des transferts FTP (SFTP ou FTPS)**
 
-![Logo BTS SIO Lycée Paul-Louis Courier](pathname:///img/logo_bts-sio.png)
+![Logo BTS SIO Lycée Paul-Louis Courier](/img/docs/projets-bts/site-bts/logo_bts-sio.png)
 
 ---
 ## Informations générales

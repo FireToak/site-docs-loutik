@@ -7,7 +7,7 @@ description: Mise en place d'une infrastructure d'hébergement Web et de gestion
 
 # Projet AP1 : Hébergement Web & Gestion d'Incidents
 
-![Logo BTS SIO Lycée Paul-Louis Courier](pathname:///img/logo_bts-sio.png)
+![Logo BTS SIO Lycée Paul-Louis Courier](/img/docs/projets-bts/site-bts/logo_bts-sio.png)
 
 ---
 
