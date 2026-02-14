@@ -122,3 +122,10 @@ Maintenant que l'infrastructure et l'automatisation sont en place, la mise à jo
 ## 💡 Une démonstration pertinente de la méthodologie DevOps
 
 Pour conclure, avec ce projet de Portfolio, je démontre qu'il est aujourd'hui indispensable de savoir conjuguer le développement (Dev) et la gestion d'infrastructure (Ops). Cette approche permet de construire des applications fiables et résilientes tout en automatisant les tâches répétitives pour gagner en efficacité.
+
+---
+## 🔗 Ressources
+
+- **Dépôt GitHub du portfolio :** https://github.com/FireToak/portfolio-bts-sio
+- **Dépôt GitHub du manifest kubernetes :** https://github.com/FireToak/k3s-deployment-portfolio
+- **Lien vers le portfolio :** https://louis.loutik.fr/
