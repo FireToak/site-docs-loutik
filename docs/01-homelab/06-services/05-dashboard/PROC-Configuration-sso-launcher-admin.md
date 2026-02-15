@@ -66,14 +66,14 @@ Sélectionner `Proxy Provider` et configurer :
 3.  **External host :** `https://launcher-admin.loutik.fr`
 
 ### 2.2 Règles de sécurité
-Pour le moment aucun groupe de sécurité, ni de règles de sécurité n'est configuré.
+Pour le moment aucun groupe de sécurité et aucune politique de sécurité n'est configuré.
 
 ### 2.3 Configuration de l'Outposts
 Dans l'interface administrateur (`Applications` > `Outposts` > `Edit (carré dans Action)`) :
 
 ![Capture d'écran - Edition du Outpost Authentik](/img/docs/homelab/authentik-homepage-dashboard/capture-ecran-edition-outpost-authentik.png)
 
-1. Dans `Applications` ajouter `Launcher Administrateur` dans `Selected Applications`.
+1. Dans `Applications` ajouter `Launcher Administrateur` à `Selected Applications`.
 
 ![Capture d'écran - Edition du Outpost Authentik](/img/docs/homelab/authentik-homepage-dashboard/capture-ecran-applications-outpost-authentik.png)
 
