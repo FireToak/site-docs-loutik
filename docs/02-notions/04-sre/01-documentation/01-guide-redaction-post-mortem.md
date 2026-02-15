@@ -54,7 +54,7 @@ Un Post-Mortem (ou RCA - *Root Cause Analysis*) est un document rédigé après 
 
 **Phase 1 – Socle physique et réseau**
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 ## Informations générales

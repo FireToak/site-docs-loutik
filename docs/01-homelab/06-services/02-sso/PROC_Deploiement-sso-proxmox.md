@@ -14,7 +14,7 @@ description: Procédure pour la mise en place de l'authentification SSO via Auth
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 

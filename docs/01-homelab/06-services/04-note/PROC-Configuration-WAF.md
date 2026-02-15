@@ -14,7 +14,7 @@ description: Configuration du Reverse Proxy Nginx et du WAF Crowdsec pour Outlin
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 

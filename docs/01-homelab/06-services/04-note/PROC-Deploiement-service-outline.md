@@ -14,7 +14,7 @@ description: Déploiement des workloads Outline (App, Redis, Postgres) sur le cl
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 

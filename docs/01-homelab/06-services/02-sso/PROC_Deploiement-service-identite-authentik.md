@@ -14,7 +14,7 @@ description: Procédure pour le déploiement et la configuration d'Authentik via
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 

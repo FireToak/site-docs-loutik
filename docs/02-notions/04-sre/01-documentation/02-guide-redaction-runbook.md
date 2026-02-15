@@ -48,7 +48,7 @@ Un Runbook (ou *Playbook*) est une documentation opérationnelle destinée à ê
 
 **Phase 1 – socle physique et réseau**
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 ## Informations générales

@@ -14,7 +14,7 @@ description: Procédure pour le déploiement de l'application Portfolio sur le c
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 

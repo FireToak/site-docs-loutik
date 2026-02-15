@@ -14,7 +14,7 @@ description: Configuration de l'Identity Provider Authentik pour l'application O
 # -------------------------------------------------------------------------
 ---
 
-![Logo Loutik](https://raw.github.com/firetoak/firetoak/master/00-logo-loutik.png)
+![Logo Loutik](/img/logo_loutik.png)
 
 ---
 
