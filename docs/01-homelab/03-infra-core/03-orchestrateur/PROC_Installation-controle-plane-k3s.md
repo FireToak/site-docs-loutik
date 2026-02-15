@@ -85,7 +85,7 @@ sudo apt update && sudo apt install git -y
 ### 2.1 Installation du service K3s
 
 ```bash
-curl -sfL [https://get.k3s.io](https://get.k3s.io) | sh -
+curl -sfL https://get.k3s.io | sh -
 
 ```
 

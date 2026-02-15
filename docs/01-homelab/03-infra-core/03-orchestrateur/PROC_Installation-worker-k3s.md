@@ -89,7 +89,7 @@ export K3S_TOKEN="K10..."
 La commande détecte automatiquement les variables d'environnement définies ci-dessus.
 
 ```bash
-curl -sfL [https://get.k3s.io](https://get.k3s.io) | K3S_URL=$K3S_URL K3S_TOKEN=$K3S_TOKEN sh -
+curl -sfL https://get.k3s.io | K3S_URL=$K3S_URL K3S_TOKEN=$K3S_TOKEN sh -
 
 ```
 
