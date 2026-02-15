@@ -34,7 +34,7 @@ Déployer le service de centralisation des liens vers les interfaces de manageme
 
 Avant de commencer, s'assurer de :
 * [ ] Avoir les accès SSH sur le nœud maître (`k3s-m-prod-01`).
-* [ ] Avoir configuré le proxy SSO sur Authentik. [procédure]()
+* [ ] Avoir configuré le proxy SSO sur Authentik. [procédure](https://docs.loutik.fr/docs/homelab/services/dashboard/PROC-Configuration-sso-launcher-admin)
 
 ---
 
