@@ -1,167 +1,174 @@
-# 📚 LoutikDOCS - Documentation Technique & Homelab
+# LoutikDOCS
 
-Ce dépôt héberge le code source de la documentation technique du projet **LoutikCLOUD**.
-Il s'agit d'un site de documentation moderne et performant, construit avec **Docusaurus**, conteneurisé avec Docker et servi par un serveur Nginx optimisé.
+> Documentation technique centralisée du projet **LoutikCLOUD** — construite avec Docusaurus, conteneurisée avec Docker et déployée sur Kubernetes.
 
-## 📋 À propos
+[![Build & Publish](https://github.com/FireToak/site-docs-loutik/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/FireToak/site-docs-loutik/actions/workflows/docker-publish.yml)
+[![Docker Image](https://img.shields.io/badge/registry-ghcr.io-blue?logo=github)](https://github.com/FireToak/site-docs-loutik/pkgs/container/site-docs-loutik)
+[![Docusaurus](https://img.shields.io/badge/Docusaurus-3.9-green?logo=docusaurus)](https://docusaurus.io/)
 
-Ce projet centralise l'ensemble de ma documentation technique, couvrant :
-- **Mon Homelab** : Procédures d'installation et configuration (Proxmox, K3s, services déployés)
-- **Mes fiches de révisions** : Notions théoriques (Modèle OSI, TCP/IP, reverse proxy)
-- **Ma boîte à outils** : Cheat sheets et aide-mémoire (Git, Kubernetes, Linux)
+---
 
-Construit avec **Docusaurus 3.9**, ce site applique les principes **Documentation as Code** : versionnement Git, génération automatique et déploiement continu.
+## Aperçu
 
-## 🏗️ Architecture du projet
+LoutikDOCS est un site de documentation moderne et performant qui centralise l'ensemble de la documentation technique du projet LoutikCLOUD. Il applique les principes **Documentation as Code** : versionnement Git, génération automatique et déploiement continu via FluxCD.
 
-L'architecture suit les conventions Docusaurus avec une séparation claire entre contenu, configuration et build.
+**Contenu couvert :**
+- **Homelab** — Procédures d'installation et de configuration (Proxmox, K3s, services déployés)
+- **Fiches de révision** — Notions théoriques (modèle OSI, TCP/IP, reverse proxy)
+- **Boîte à outils** — Cheat sheets et aide-mémoire (Git, Kubernetes, Linux)
 
-```text
-├── .github/                      # Pipelines CI/CD (GitHub Actions)
+---
+
+## Stack technique
+
+| Composant | Technologie |
+|---|---|
+| Framework documentation | [Docusaurus 3.9](https://docusaurus.io/) |
+| Conteneurisation | Docker — image `nginx:alpine` |
+| CI/CD | GitHub Actions + FluxCD |
+| Registry | GitHub Container Registry (GHCR) |
+| Hébergement | Kubernetes K3s — LoutikCLOUD |
+| Recherche | [@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local) |
+
+---
+
+## Structure du projet
+
+```
+├── .github/
 │   └── workflows/
-│       └── docker-publish.yml    # Build et push automatique vers GHCR
-├── blog/                         # Articles de blog (veille techno, retours d'expérience)
-│   ├── authors.yml               # Profil auteur
-│   ├── tags.yml                  # Taxonomie des tags
-│   └── 2026/                     # Articles par année
+│       └── docker-publish.yml    # Pipeline CI/CD — build & push GHCR
+├── blog/                         # Articles de blog (veille, retours d'expérience)
+│   ├── authors.yml
+│   ├── tags.yml
+│   └── 2026/
 ├── docs/                         # Documentation principale
-│   ├── 01-homelab/               # Procédures infrastructure (Proxmox, K3s, services)
-│   ├── 02-notions/               # Fiches théoriques (OSI, TCP/IP, DevOps)
+│   ├── 01-homelab/               # Infrastructure (Proxmox, K3s, services)
+│   ├── 02-notions/               # Théorie (OSI, TCP/IP, DevOps)
 │   ├── 03-outils/                # Cheat sheets (Git, kubectl, Markdown)
-│   ├── intro.md                  # Page d'accueil de la doc
-│   └── mentions-legales.md       # Mentions légales
-├── src/                          # Composants React personnalisés
-│   ├── components/               # Composants réutilisables (HomepageFeatures)
+│   ├── intro.md
+│   └── mentions-legales.md
+├── src/
+│   ├── components/               # Composants React réutilisables
 │   ├── css/                      # Styles globaux (custom.css)
-│   └── pages/                    # Pages hors documentation (index.js, markdown-page.md)
-├── static/                       # Assets statiques (images, favicon, manifeste)
-│   └── img/
-├── .docusaurus/                  # Fichiers générés (ne pas éditer manuellement)
-├── build/                        # Site compilé (généré par `npm run build`)
-├── docusaurus.config.js          # Configuration Docusaurus (thème, plugins, navbar)
-├── sidebars.js                   # Structure de navigation de la documentation
-├── nginx.conf                    # Configuration Nginx pour le conteneur
-├── Dockerfile                    # Instructions de build de l'image Docker
-├── package.json                  # Dépendances Node.js et scripts npm
-└── README.md                     # Documentation du projet
+│   └── pages/                    # Pages hors documentation
+├── static/
+│   └── img/                      # Assets statiques
+├── build/                        # Site compilé — généré par `npm run build`
+├── docusaurus.config.js          # Configuration principale (thème, plugins, navbar)
+├── sidebars.js                   # Navigation de la documentation
+├── nginx.conf                    # Configuration Nginx du conteneur
+├── Dockerfile                    # Build de l'image Docker
+└── package.json                  # Dépendances Node.js et scripts npm
 ```
 
-## 🚀 Installation et Démarrage
+---
+
+## Démarrage rapide
 
 ### Prérequis
 
-* **Node.js 20.x ou supérieur** (spécifié dans package.json)
-* **npm** ou **yarn** pour la gestion des dépendances
-* **Docker** (optionnel, pour tester en environnement de production)
+- **Node.js** ≥ 20.x
+- **npm**
+- **Docker** *(optionnel, pour tester en conditions de production)*
 
-### Lancer le projet en développement local
+### Développement local
 
-1. **Cloner le dépôt :**
 ```bash
+# 1. Cloner le dépôt
 git clone https://github.com/FireToak/site-docs-loutik.git
 cd site-docs-loutik
-```
 
-2. **Installer les dépendances :**
-```bash
+# 2. Installer les dépendances
 npm ci
-```
 
-3. **Démarrer le serveur de développement :**
-```bash
+# 3. Démarrer le serveur de développement (hot-reload sur http://localhost:3000)
 npm start
 ```
 
-4. **Accéder au site :**
-Le site s'ouvre automatiquement sur `http://localhost:3000` avec rechargement à chaud (hot-reload).
-
-### Compiler le site en production
-
-Pour générer le site statique final :
+### Build de production
 
 ```bash
 npm run build
+# Les fichiers compilés sont générés dans le dossier /build
 ```
 
-Les fichiers compilés sont placés dans le dossier build et peuvent être servis par n'importe quel serveur web statique.
+### Lancer avec Docker
 
-### Lancer le site avec Docker (environnement de production)
-
-Pour tester le site avec la configuration Nginx en conditions réelles :
-
-1. **Construire l'image Docker :**
 ```bash
+# Construire l'image
 docker build -t loutikdocs .
-```
 
-2. **Lancer le conteneur :**
-```bash
+# Lancer le conteneur
 docker run -d -p 80:80 --name loutikdocs-web loutikdocs
+
+# Accéder au site
+open http://localhost:80
 ```
 
-3. **Accéder au site :**
-Ouvrez votre navigateur sur `http://localhost:80`.
+---
 
-## ⚙️ Configuration Nginx
+## CI/CD & Versionnement
 
-Le fichier nginx.conf inclut des optimisations pour l'expérience utilisateur et le SEO :
+### Pipeline GitHub Actions
 
-* **Clean URLs :** Suppression des extensions `.html` dans l'URL (ex: `/docs/intro` affiche le contenu de `intro.html`).
-* **Sécurité :** Masquage de la version de Nginx (`server_tokens off`).
-* **Gestion d'erreurs :** Redirection personnalisée vers `/404.html`.
-* **Favicon :** Redirection transparente de `/favicon.ico` vers `/img/favicon.ico`.
-* **Normalisation :** Suppression automatique des trailing slashes et redirection de `/index` vers la racine `/`.
+Le workflow se déclenche à chaque **push de tag semver** (`v*.*.*`) et publie automatiquement l'image Docker sur GHCR avec les tags suivants :
 
-## 🔄 CI/CD (Intégration Continue)
+| Tag Docker | Usage |
+|---|---|
+| `v1.2.3` | Version exacte — immuable |
+| `v1.2` | Reçoit automatiquement les patchs |
+| `v1` | Point d'entrée stable — suivi par FluxCD |
+| `latest` | Dernier build |
 
-Le déploiement est entièrement automatisé via **GitHub Actions** (docker-publish.yml) :
+### Publier une nouvelle version
 
-1. **Déclenchement :** À chaque `push` sur la branche `main`
-2. **Build Docusaurus :** Compilation du site statique avec `npm run build`
-3. **Conteneurisation :** Construction d'une image Docker incluant Nginx et les fichiers statiques
-4. **Publication :** Push automatique sur le **GitHub Container Registry (GHCR)** avec les tags :
-   * `latest` (dernière version)
-   * `sha-<commit>` (identifiant du commit)
+```bash
+# Travailler sur main normalement
+git add .
+git commit -m "feat: ma nouvelle fonctionnalité"
+git push origin main
 
-**Registry des images :** [`ghcr.io/firetoak/site-docs-loutik`](https://github.com/FireToak/site-docs-loutik/pkgs/container/site-docs-loutik)
+# Taguer et publier une version (déclenche le pipeline)
+git tag v1.2.3
+git push origin v1.2.3
+```
 
-## 🎨 Personnalisation
+**Convention semver :**
 
-### Configuration du site
+```
+v MAJEUR . MINEUR . PATCH
+    │         │       │
+    │         │       └── Correction de bug
+    │         └────────── Nouvelle fonctionnalité rétrocompatible
+    └────────────────────  Breaking change (déploiement manuel requis)
+```
 
-Le fichier docusaurus.config.js centralise la configuration :
+### Image Docker
 
-* **Métadonnées** : Titre, tagline, URL, favicon
-* **Thème** : Couleurs, logo, navbar, footer
-* **Plugins** : Blog, recherche locale ([@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local))
-* **Prism** : Coloration syntaxique du code
+```
+ghcr.io/firetoak/site-docs-loutik
+```
 
-### Structure de la documentation
+---
 
-Le fichier sidebars.js définit la navigation latérale de la documentation. Actuellement configuré en mode **autogenerated** (génération automatique depuis la structure des dossiers docs).
+## Configuration Nginx
 
-### Styles personnalisés
+Le fichier `nginx.conf` inclut les optimisations suivantes :
 
-Les styles globaux sont définis dans custom.css :
+- **Clean URLs** — suppression des extensions `.html` (`/docs/intro` → `intro.html`)
+- **Sécurité** — masquage de la version Nginx (`server_tokens off`)
+- **Gestion d'erreurs** — redirection personnalisée vers `/404.html`
+- **Normalisation** — suppression des trailing slashes, redirection de `/index` vers `/`
+- **Favicon** — redirection transparente vers `/img/favicon.ico`
 
-* Variables CSS pour les couleurs primaires (mode clair et sombre)
-* Styles des titres (h1, h2, h3)
-* Icônes personnalisées dans la navbar (GitHub, LinkedIn, Discord)
+---
 
-## 🛠️ Technologies utilisées
+## Auteur
 
-* **Framework :** [Docusaurus 3.9.2](https://docusaurus.io/)
-* **Conteneurisation :** Docker (image basée sur `nginx:alpine`)
-* **CI/CD :** GitHub Actions
-* **Recherche locale :** [@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local)
-* **Reverse Proxy :** Nginx (configuration dans nginx.conf)
-* **Hébergement :** Kubernetes (K3s) sur infrastructure LoutikCLOUD
+**Louis MEDO** — Étudiant BTS SIO, passionné par l'administration système et le DevOps
 
-## 👤 Auteur
-
-**Louis MEDO** - *Étudiant BTS SIO, passionné par l'administration système et le DevOps* ❤️
-
-* **LinkedIn :** [louismedo](https://linkedin.com/in/louismedo)
-* **GitHub :** [firetoak](https://github.com/firetoak)
-* **Portfolio :** [louis.loutik.fr](https://louis.loutik.fr)
-* **Email :** louis@loutik.fr
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-louismedo-0077B5?logo=linkedin)](https://linkedin.com/in/louismedo)
+[![GitHub](https://img.shields.io/badge/GitHub-firetoak-181717?logo=github)](https://github.com/firetoak)
+[![Portfolio](https://img.shields.io/badge/Portfolio-louis.loutik.fr-orange)](https://louis.loutik.fr)
+[![Email](https://img.shields.io/badge/Email-louis@loutik.fr-red?logo=gmail)](mailto:louis@loutik.fr)
