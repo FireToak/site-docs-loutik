@@ -159,10 +159,10 @@ Helm est le gestionnaire de paquets pour Kubernetes (équivalent d'APT).
 sudo apt-get install curl gpg apt-transport-https --yes
 
 # Ajout de la clé GPG
-curl -fsSL [https://packages.buildkite.com/helm-linux/helm-debian/gpgkey](https://packages.buildkite.com/helm-linux/helm-debian/gpgkey) | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 
 # Ajout du dépôt
-echo "deb [signed-by=/usr/share/keyrings/helm.gpg] [https://packages.buildkite.com/helm-linux/helm-debian/any/](https://packages.buildkite.com/helm-linux/helm-debian/any/) any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 
 # Installation
 sudo apt-get update
@@ -180,9 +180,8 @@ Keel est un "Watcher" qui met à jour automatiquement les conteneurs quand une n
 
 ```bash
 # Ajout du repo Keel
-helm repo add keel [https://charts.keel.sh](https://charts.keel.sh)
+helm repo add keel https://charts.keel.sh
 helm repo update
-
 ```
 
 ### 5.2 Configuration (Values)
