@@ -1,8 +1,19 @@
 name: Build and Publish Docker Image
 
+# ─────────────────────────────────────────────
+# DÉCLENCHEUR : uniquement sur les tags semver
+# Format attendu : v1.0.0, v2.3.1, etc.
+# C'est le tag Git qui est la source de vérité
+# pour la version — plus de build sur chaque push.
+#
+# Pour publier une nouvelle version :
+#   git tag v1.2.3
+#   git push origin v1.2.3
+# ─────────────────────────────────────────────
 on:
   push:
-    branches: ['main']
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 env:
   REGISTRY: ghcr.io
@@ -11,27 +22,34 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       packages: write
 
     steps:
+      # * Récupération du code *
+      # fetch-depth: 0 est nécessaire pour que docker/metadata-action puisse lire les tags Git
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
+      # * Setup Node.js *
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
+      # * Installation des dépendances *
       - name: Install dependencies
         run: npm ci
 
+      # * Build du site statique *
       - name: Build static site
         run: npm run build
 
+      # * Authentification au registry *
       - name: Log in to the Container Registry
         uses: docker/login-action@v3
         with:
@@ -39,15 +57,31 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # * Génération des tags Docker *
+      # À partir du tag Git "v1.2.3", on génère :
+      #   - ghcr.io/org/app:v1.2.3  → version exacte (immuable)
+      #   - ghcr.io/org/app:v1.2    → majeur.mineur (reçoit les patchs)
+      #   - ghcr.io/org/app:v1      → majeur seul   ← FluxCD pointe ici
+      #   - ghcr.io/org/app:latest  → dernier build
+      #
+      # FluxCD avec ImagePolicy semver: '>= 1.0.0 < 2.0.0'
+      # mettra à jour automatiquement tant qu'on reste en v1.x.x
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
+            # Tag semver complet : v1.2.3
+            type=semver,pattern={{version}}
+            # Majeur.mineur : v1.2 (reçoit automatiquement les patchs)
+            type=semver,pattern={{major}}.{{minor}}
+            # Majeur seul : v1 (point d'entrée stable pour FluxCD)
+            type=semver,pattern={{major}}
+            # Latest : toujours sur le dernier tag
             type=raw,value=latest
-            type=sha,prefix=sha-
 
+      # * Build et push de l'image *
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -55,3 +89,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # Cache inter-builds via le registry GHCR
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
