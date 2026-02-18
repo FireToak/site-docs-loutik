@@ -35,7 +35,6 @@ description: Comment installer et structurer les dépôts git de FluxCD.
 - A. Préparation de l'architecture des dépôts Git
 - B. Installation de l'utilitaire en ligne de commande (CLI)
 - C. Amorçage (Bootstrap) de FluxCD sur le cluster
-- D. Configuration de FluxCD pour automatiser le déploiement des manifests
 - E. Annexes
 
 ---
@@ -206,22 +205,11 @@ spec:
 * **`secretRef` :** Directive de configuration propre aux Custom Resources (CRD) comme Flux. Elle établit une relation de confiance entre le composant `GitRepository` et le `Secret` Kubernetes. C'est grâce à cela que Flux obtient les droits d'écriture (commit/push) pour son automatisation.
 
 ---
-## D. Configuration de FluxCD pour automatiser le déploiement des manifests
-
-### Procédure pour automatiser le déploiement des images Docker
-
-* [Lien a faire](http://google.fr)
-
-### Procédure pour automatiser le déploiement des applications avec des manifests classique
-
-* [Lien a faire](http://google.fr)
-
----
 ## E. Annexes
 
-* [Automatiser le déploiement des images Docker]
-* [Automatiser le déploiements des applications avec manifests classique]
-* [Administration au quotidien de FluxCD]
+* [Déploiement déclaratif d'applications (Kustomize)](https://docs.loutik.fr/docs/homelab/infra-core/orchestrateur/fluxcd/PROC_Deploiement-d%C3%A9claratif-application-fluxcd)
+* [Configuration de l'Image Update Automation (FluxCD)](https://docs.loutik.fr/docs/homelab/infra-core/orchestrateur/fluxcd/PROC_Configuration-image-update-automatisation-flux)
+* [Administration au quotidien et débogage (FluxCD)](https://docs.loutik.fr/docs/homelab/infra-core/orchestrateur/fluxcd/PROC_Administration-quotidien-debogage-fluxcd)
 
 ---
 ## Ressources

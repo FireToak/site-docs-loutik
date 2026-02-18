@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
-title: Déploiement déclaratif d'applications (Kustomize)
-description: Comment déployer une application avec kustomize avec FluxCD
+sidebar_position: 4
+title: Configuration de l'Image Update Automation (FluxCD)
+description: Comment mettre à jour automatiquement l'image docker contenue dans les manifests avec FluxCD.
 
 # -------------------------------------------------------------------------
 # 🎯 MODÈLE : ACTION (VIVANT)
