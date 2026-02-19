@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Configuration SSO Authentik sur Proxmox
 description: Procédure pour la mise en place de l'authentification SSO via Authentik sur Proxmox VE.
 
