@@ -48,8 +48,6 @@ kubectl get pods -n authentik -l app.kubernetes.io/name=postgresql
 - `-n authentik` : Cible le namespace où Authentik est installé.
 - `-l app.kubernetes.io/name=postgresql` : Filtre l’affichage pour ne montrer que le pod PostgreSQL.
 
----
-
 1.2 **Export de la base de données.** Créer un dump complet de la base PostgreSQL.
 
 ```bash
@@ -63,8 +61,6 @@ kubectl exec -it <nom-du-pod-db> -n authentik -- bash -c 'pg_dump -U $POSTGRES_U
 - `-U $POSTGRES_USER` : Utilise l’utilisateur défini dans les variables d’environnement du pod.
 - `$POSTGRES_DB` : Base de données Authentik.
 - `> /tmp/...sql` : Redirige la sortie vers un fichier temporaire dans le pod.
-
----
 
 1.3 **Récupération du fichier de sauvegarde.** Copier le dump sur la machine locale.
 
@@ -90,15 +86,11 @@ kubectl scale deployment,statefulset -n authentik -l app.kubernetes.io/name=auth
 - `kubectl scale` : Modifie le nombre de réplicas.
 - `--replicas=0` : Arrête temporairement l’application.
 
----
-
 2.2 **Transfert de la sauvegarde vers PostgreSQL.** Copier le fichier de sauvegarde dans le pod base de données.
 
 ```bash
 kubectl cp ./authentik_backup-YYYYMMDD.sql authentik/<nom-du-pod-db>:/tmp/authentik_backup-YYYYMMDD.sql
 ```
-
----
 
 2.3 **Réinitialisation et restauration de la base.** Supprimer la base existante, la recréer puis injecter le dump.
 
@@ -112,8 +104,6 @@ kubectl exec -it <nom-du-pod-db> -n authentik -- bash -c 'dropdb -U $POSTGRES_US
 - `createdb` : Crée une base vide.
 - `psql` : Client PostgreSQL.
 - `< fichier.sql` : Injecte le dump dans la base.
-
----
 
 2.4 **Redémarrage d’Authentik.** Relancer les composants applicatifs.
 
