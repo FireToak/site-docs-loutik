@@ -176,9 +176,9 @@ flux bootstrap github \
 
 ```bash
 kubectl create secret generic github-token-secret \
-  --namespace=flux-system \
-  --from-literal=username=FireToak \
-  --from-literal=password=<TOKEN_PAT>
+ --namespace=flux-system \
+ --from-literal=username=FireToak \
+ --from-literal=password=<TOKEN_PAT>
 ```
 
 * **`Secret` :** Objet Kubernetes sécurisé (encodé en base64) permettant de stocker des données sensibles séparément du code source.
