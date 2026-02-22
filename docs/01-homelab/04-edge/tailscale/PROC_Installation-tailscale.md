@@ -95,13 +95,23 @@ Modifier le noyau Linux pour autoriser le passage de paquets d'une interface à 
     sysctl --system
     ```
 
+### 2.2 Optimisation des performances UDP
+```
+sudo ethtool -K eth0 rx-udp-gro-forwarding off rx-gro-list off
+```
+
+- **UDP GRO (Generic Receive Offload)** : Fonctionnalité matérielle qui regroupe les paquets pour soulager le processeur. Comme Tailscale chiffre le trafic via WireGuard (qui utilise le protocole UDP), cette agrégation ralentit le traitement    
+- `ethtool` : L'outil de configuration des paramètres matériels de ta carte réseau.
+- `-K` : L'argument qui indique qu'on modifie les fonctionnalités de déchargement (_offload_) de l'interface (ici, `eth0`).
+- `off` : Désactive spécifiquement les agrégations liées à UDP pour restaurer un débit optimal.
+
 ### 2.2 Annonce de la route
 Sur `gateway01-loutik`, annoncer le réseau LAN complet :
 
 ```bash
 # --advertise-routes : déclare les sous-réseaux accessibles via ce nœud
 # 192.168.1.0/24 : CIDR du réseau local complet
-tailscale up --advertise-routes=192.168.1.0/24
+tailscale up --advertise-routes=192.168.20.0/24,192.168.30.0/24,192.168.40.0/30
 ```
 
 :::warning Point d'attention
