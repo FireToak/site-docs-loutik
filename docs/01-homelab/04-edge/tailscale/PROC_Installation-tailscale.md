@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: Mise en place de Tailscale et ACL
-description: Procédure pour l'installation du maillage VPN Tailscale, la configuration du Subnet Router et la restriction des flux via ACL.
+title: Mise en place de Tailscale [Liaison VPS]
+description: Procédure pour l'installation du maillage VPN Tailscale, la configuration du Subnet Router pour la liaison LoutikCLOUD <-> VPS.
 
 # -------------------------------------------------------------------------
 # 🎯 MODÈLE : ACTION (VIVANT)
