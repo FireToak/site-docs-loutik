@@ -9,3 +9,36 @@
   height: 200px;
   width: 200px;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.BgHomelab {
+  background-color: #c99797;
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  color: black;
+}
+
+.BgNotionsCours {
+  background-color: #A8D5BA;
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  color: black;
+}
+
+.BgBoiteOutils {
+  background-color: #F6B26B;
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  color: black;
+}

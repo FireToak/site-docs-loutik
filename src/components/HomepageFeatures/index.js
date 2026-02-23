@@ -10,6 +10,7 @@ const FeatureList = [
       <>Découvre mes déploiements : Cluster K3s, Proxmox et WAF.</>
     ),
     link: '/docs/category/-homelab',
+    customBg: styles.BgHomelab,
   },
   {
     title: '📚 Notions & Cours',
@@ -17,6 +18,7 @@ const FeatureList = [
       <>Base de connaissances : Modèle OSI, protocoles et DevOps.</>
     ),
     link: '/docs/notions',
+    customBg: styles.BgNotionsCours,
   },
   {
     title: '🛠️ Boîte à Outils',
@@ -24,13 +26,14 @@ const FeatureList = [
       <>Cheat Sheets pour Git, Kubernetes, Linux et plus.</>
     ),
     link: '/docs/outils',
+    customBg: styles.BgBoiteOutils,
   },
 ];
 
-function Feature({title, description, link}) {
+function Feature({title, description, link, customBg}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center padding-horiz--md">
+      <div className={clsx("text--center padding-horiz--md", customBg)}>
         <Heading as="h3" className={styles.featureHeading}>
           {title}
         </Heading>
