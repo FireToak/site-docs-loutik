@@ -149,7 +149,7 @@ const config = {
             ],
           },
           {
-            title: 'Connexions',
+            title: 'Contact',
             items: [
               {
                 label: 'GitHub',

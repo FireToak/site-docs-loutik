@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <Layout
       title={`Accueil`}
-      description="Description will go into a meta tag in <head />">
+      description="Documentation et blog de Loutik.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
