@@ -14,115 +14,87 @@ description: Installation de l'hyperviseur sur le SSD NVMe et configuration du s
 
 :::info Métadonnées
 * **Mainteneur(s) :** MEDO Louis
-* **Dernière validation technique :** 2026-01-11
+* **Dernière validation technique :** 2026-02-24
 * **Version PVE :** 9.x
 :::
 
 ---
 
 ## Contexte
-Cette procédure couvre l'installation "Bare Metal" (directement sur le matériel) de l'hyperviseur Proxmox VE. L'OS sera installé sur le disque rapide (NVMe) et le stockage des VMs sera étendu sur le second disque mécanique/SSD.
 
-**Impact :** Écrasement total et irréversible de toutes les données présentes sur les disques de la machine cible.
+Cette procédure détaille le déploiement de l'hyperviseur Proxmox VE au sein du Homelab LoutikCLOUD. L'architecture matérielle standard des nœuds repose sur un partitionnement physique strict : un SSD NVMe est dédié au système hôte (OS Proxmox) pour des performances d'E/S optimales, et un second disque (SSD/HDD) est alloué exclusivement au Datastore (stockage des disques virtuels des VMs et conteneurs).
 
 ---
 
 ## Prérequis
 
 Avant de commencer, s'assurer de :
-* [ ] Une clé USB bootable avec l'ISO de Proxmox VE (via Ventoy ou Etcher).
-* [ ] Clavier et écran connectés physiquement au serveur.
-* [ ] Câble réseau connecté (Indispensable pour l'installation).
-* [ ] Connaître l'IP statique à attribuer (ex: `192.168.1.100`).
+- [ ] Disposer d'une clé USB d'installation flashée avec l'ISO de Proxmox VE 9.x.
+- [ ] Connecter le serveur cible au réseau d'administration LoutikCLOUD (lien physique actif).
+- [ ] Avoir défini les paramètres réseau cibles (IP statique, passerelle, masque, DNS).
+- [ ] Disposer d'un accès au serveur (physique avec clavier/écran ou distant via iDRAC/iLO).
 
 ---
 
-## Étape 1 : Vérifications BIOS & Pilotes
+## A. Vérifications BIOS & Pilotes
 
-Avant d'installer, il faut préparer le terrain matériel.
-
-### 1.1 Activation de la Virtualisation
-Accéder au BIOS/UEFI (Touches `Del`, `F2` ou `F12` au démarrage).
-1.  Chercher le menu **CPU Configuration** ou **Chipset**.
-2.  Activer **Intel VT-x** (Intel) ou **AMD-V / SVM** (AMD).
-3.  Activer **IOMMU** (ou VT-d) si disponible (nécessaire pour le passthrough PCI).
-4.  Désactiver le **Secure Boot** (Proxmox ne le supporte pas toujours nativement).
-
-### 1.2 Compatibilité Matérielle (Pilotes)
-Proxmox est basé sur **Debian**.
-* Si le matériel est très récent (carte réseau 2.5Gbe récente), s'assurer d'utiliser la dernière version de l'ISO Proxmox (le noyau Linux sera plus récent).
-* Pas d'installation manuelle de pilotes nécessaire en amont : si le réseau est détecté à l'installation, tout est bon.
+1. **Activation de la virtualisation matérielle.** Accéder au BIOS/UEFI du serveur et activer les instructions processeurs requises : `VT-x` (Intel) ou `AMD-V` (AMD).
+2. **Configuration du Secure Boot.** Bien que supporté, il est recommandé de désactiver le Secure Boot pour faciliter l'installation de modules noyau tiers si nécessaire à l'avenir.
+3. **Modification de l'ordre de démarrage.** Placer le périphérique USB contenant l'ISO Proxmox en première position dans la séquence de boot UEFI.
 
 ---
 
-## Étape 2 : Installation de l'OS (Sur NVMe)
+## B. Installation de l'OS (Sur NVMe)
 
-Installation du système d'exploitation.
-
-### 2.1 Boot et Cible
-1.  Démarrer sur la clé USB.
-2.  Sélectionner **Install Proxmox VE (Graphical)**.
-3.  Accepter la licence (EULA).
-4.  **Target Harddisk :** Sélectionner le disque **NVMe** (souvent `/dev/nvme0n1`).
-    * *Optionnel :* Cliquer sur `Options` pour ajuster la taille du swap si besoin.
-
-### 2.2 Configuration Réseau & Admin
-1.  **Country/Timezone :** France / Paris.
-2.  **Password :** Définir le mot de passe `root` (à sauvegarder dans Bitwarden).
-3.  **Network Configuration :**
-    * **Management Interface :** Choisir la carte connectée.
-    * **Hostname :** `pve-01.loutik.local` (exemple).
-    * **IP Address :** Fixer l'IP statique.
-    * **DNS Server :** `1.1.1.1` ou IP du routeur.
-
-Lancer l'installation et retirer la clé USB au redémarrage.
+1. **Lancement du programme d'installation.** Démarrer sur la clé USB et choisir `Install Proxmox VE (Graphical)` dans le menu GRUB.
+2. **Sélection du support de destination.** À l'étape `Target Harddisk`, sélectionner impérativement le **disque SSD NVMe**. Ne pas modifier le second disque.
+3. **Configuration du système et réseau.** Renseigner le mot de passe `root`, l'email d'administration, et assigner l'adresse IP statique, le masque, la passerelle et le serveur DNS local selon le plan d'adressage.
+4. **Finalisation.** Cliquer sur `Install`, retirer le support USB lors de la demande de redémarrage automatique.
 
 ---
 
-## Étape 3 : Configuration du Stockage Secondaire (LVM-Thin)
+## C. Configuration du stockage pour les machines virtuelles (LVM-Thin)
 
 Une fois redémarré, nous allons utiliser le second disque pour stocker les disques des futures VMs.
 
-### 3.1 Accès à l'interface
-Se connecter via `https://<IP_PROXMOX>:8006` (Ignorer l'alerte SSL).
-
-### 3.2 Initialisation du disque
-1.  Aller dans **Datacenter** > **Nom-du-Nœud** (pve-01) > **Disks**.
-2.  Repérer le second disque (ex: `/dev/sda` ou `/dev/sdb`).
-3.  Si le disque contient des partitions : cliquer sur **Wipe Disk** pour tout effacer.
-
-### 3.3 Création du LVM-Thin
-Toujours dans le menu **Disks**, cliquer sur l'onglet **LVM-Thin**.
-1.  Cliquer sur **Create: Thinpool**.
-2.  **Disk :** Sélectionner le second disque vide.
-3.  **Name :** `data-hdd` (ou un nom explicite).
-4.  Cliquer sur **Create**.
-
-:::info 🧠 Fiche Notion : LVM-Thin vs LVM Standard
-
-* **Thin Provisioning (Allocation fine) :** Créer une VM avec un disque de 100 Go, mais qui n'utilise que 5 Go, elle ne prendra que 5 Go de place réelle sur ton disque physique.
-* **Snapshots :** Le LVM-Thin permet de faire des instantanés (Snapshots) de des VMs. C'est indispensable pour faire des tests et revenir en arrière.
-* *A contrario*, le LVM "Thick" (Standard) réserve tout l'espace immédiatement et ne supporte pas les snapshots nativement sur Proxmox.
-:::
+1. **Nettoyage du second disque.** Accéder à l'interface web (`https://<IP>:8006`). Aller dans `<NomDuNoeud> -> Disks`. Sélectionner le disque secondaire et cliquer sur `Wipe Disk` pour supprimer toute partition existante.
+2. **Création du pool LVM-Thin.** Naviguer dans `<NomDuNoeud> -> Disks -> LVM-Thin`. Cliquer sur `Create: Thinpool`. Sélectionner le disque secondaire, nommer le pool (utiliser `DATA_VM` sur le cluster LoutikCLOUD), et valider. Cette technologie permet le provisionnement dynamique (thin provisioning), optimisant ainsi la consommation d'espace de stockage.
 
 ---
+## D. Configuration post-installation
 
-## Validation Finale
+### Port de l'interface
 
-* [ ] L'interface web est accessible.
-* [ ] Dans le menu gauche, le stockage `local-lvm` (sur NVMe) et `data-hdd` (sur 2nd disque) sont visibles.
-* [ ] La commande `ip a` dans le shell du nœud confirme la bonne configuration IP.
+Au sein de l'infrastructure LoutikCLOUD, le routeur OPNsense assure la résolution DNS locale via Unbound. Pour garantir une expérience utilisateur fluide avec des accès transparents aux interfaces d'administration via les noms de domaine, sans avoir à spécifier le port par défaut (8006), nous mettons en place une redirection locale (Port Forwarding) du flux HTTPS standard (443) vers le port d'écoute natif de Proxmox.
 
----
+1. **Application des règles de routage interne.** Ouvrir le Shell Proxmox et exécuter les commandes suivantes pour dévier le trafic et rendre la règle persistante aux redémarrages.
 
-## Rollback
+```bash
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 8006
+apt update && apt install iptables-persistent -y
+netfilter-persistent save
 
-En cas de plantage total ou d'erreur de disque :
-1.  Relancer l'installation depuis la clé USB.
-2.  Au moment du choix du disque, sélectionner à nouveau le NVMe pour écraser l'installation défectueuse.
+```
+
+*Explication des commandes :*
+
+* `iptables` : Outil en ligne de commande permettant de configurer les règles du pare-feu du noyau Linux (Netfilter).
+* `-t nat` : Spécifie que l'on manipule la table NAT (Network Address Translation).
+* `-A PREROUTING` : Ajoute la règle à la chaîne PREROUTING, interceptant les paquets entrants avant la décision de routage.
+* `-p tcp --dport 443` : Cible exclusivement le protocole TCP à destination du port 443.
+* `-j REDIRECT --to-ports 8006` : Action à appliquer : redirige le paquet vers la machine locale sur le port 8006.
+* `apt update && apt install iptables-persistent -y` : Met à jour le cache des paquets `apt` et installe le service `iptables-persistent` automatiquement (`-y`), nécessaire pour sauvegarder l'état du pare-feu.
+* `netfilter-persistent save` : Script qui fige la configuration iptables actuelle en mémoire dans le fichier de configuration statique `/etc/iptables/rules.v4`, garantissant son application à chaque démarrage.
+
+### Configuration de l'authentification avec Authentik
+
+1. **Préparation côté Authentik.** Sur le serveur Authentik, créer un `Provider` de type OIDC et une `Application` associée pour Proxmox. Conserver le `Client ID`, le `Client Secret` et l'URL `Issuer`.
+2. **Intégration côté Proxmox.** Dans l'interface Proxmox, naviguer vers `Datacenter -> Permissions -> Realms`. Ajouter un royaume `OpenID Connect`, remplir les informations fournies par Authentik et définir l'attribut `autocreate` à `1` pour provisionner automatiquement les utilisateurs.
 
 ---
 
 ## Références
-* [Documentation Officielle Proxmox (Install)](https://pve.proxmox.com/wiki/Installation)
-* [Documentation Storage LVM-Thin](https://pve.proxmox.com/wiki/Storage:_LVM_Thin)
+
+* [Documentation officielle Proxmox VE](https://pve.proxmox.com/pve-docs/)
+* [Manpage d'Iptables](https://linux.die.net/man/8/iptables)
+* [Authentik - Proxmox Integration](https://docs.goauthentik.io/integrations/services/proxmox-ve/)
