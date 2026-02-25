@@ -31,7 +31,7 @@ Dans les réseaux actuels, le DNS est une infrastructure critique. Sans lui, la 
 Pour résoudre un nom de domaine en adresse IP, le protocole DNS ne s'appuie pas sur un serveur unique, mais sur une architecture hiérarchique et distribuée. Le processus utilise différentes couches de serveurs qui communiquent entre elles en "entonnoir" pour affiner la recherche jusqu'à trouver l'information exacte.
 
 ```mermaid
-graph TD
+graph LR
     A[Client / Navigateur Web] -->|1. Demande www.domaine.fr| B(Résolveur DNS)
     B -->|2. Qui gère .fr ?| C[Serveurs Racines - Root]
     C -->|3. Voici l'IP du serveur .fr| B
@@ -40,7 +40,6 @@ graph TD
     B -->|6. Quelle est l'IP de www ?| E[Serveurs d'Autorité]
     E -->|7. Voici l'IP de www.domaine.fr| B
     B -->|8. Réponse IP envoyée au client| A
-
 ```
 
 * **Le Résolveur DNS :** C'est le serveur (souvent fourni par le FAI ou configuré en local comme Unbound) qui reçoit la requête de votre machine. Il se charge de faire le travail de recherche de manière récursive en interrogeant les couches supérieures.
