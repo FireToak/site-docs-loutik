@@ -22,7 +22,7 @@ description: Configuration du service Unbound DNS sur le pare-feu OPNsense pour 
 
 Cette procédure détaille l'activation et la configuration du service Unbound DNS sur le pare-feu OPNsense pour le homelab LoutikCLOUD. L'objectif est de mettre en place une résolution locale pour accéder aux différentes interfaces d'administration via des noms de domaine personnalisés et lisibles, sans avoir à retenir les adresses IP.
 
-Un résolveur DNS est un serveur chargé de traduire les noms de domaine demandés par les clients en adresses IP routables sur le réseau. Pour approfondir la théorie et les mécanismes de cette traduction, je vous invite vivement à consulter ma fiche Notion sur le DNS : [A faire](#).
+Un résolveur DNS est un serveur chargé de traduire les noms de domaine demandés par les clients en adresses IP routables sur le réseau. Pour approfondir la théorie et les mécanismes de cette traduction, je vous invite vivement à consulter ma fiche Notion sur le DNS : [Fiche notion - DNS](https://docs.loutik.fr/docs/notions/reseau/Fonctionnement-dns).
 
 ---
 ## B. Activation du service Unbound
