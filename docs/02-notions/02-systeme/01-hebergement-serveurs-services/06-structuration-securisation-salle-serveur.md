@@ -1,6 +1,6 @@
 ---
-title: Stratégie de sauvegarde des machines virtuelles
-description: Synthèse sur la stratégie de sauvegarde des machines virtuelles. Cours BTS SIO - Paul-louis Courier
+title: Structuration et sécurisation des salles serveur
+description: Synthèse sur la Structuration et sécurisation des salles serveur. Cours BTS SIO - Paul-louis Courier
 ---
 
 ---
