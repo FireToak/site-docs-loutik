@@ -1,6 +1,6 @@
 ---
 title: Les Listes de Contrôle d'Accès (ACL)
-description: Maîtriser le filtrage réseau : concepts, types (Standard vs Étendue) et bonnes pratiques de déploiement.
+description: Concepts, types (Standard vs Étendue) et bonnes pratiques de déploiement.
 ---
 
 ## Présentation des ACL
@@ -21,10 +21,54 @@ Elles filtrent **uniquement en fonction de l'adresse IP source**.
 * **Pertinence :** Utiles pour des actions globales. Elles servent à autoriser ou bloquer un hôte spécifique ou un sous-réseau entier de manière radicale.
 * **Bonne pratique de placement :** À appliquer **le plus près possible de la destination** pour éviter de bloquer le trafic légitime vers d'autres directions.
 
+```mermaid 
+flowchart TD
+    A([Arrivée du paquet]) --> B{Vérification de l'IP Source}
+    
+    B -->|Correspondance avec l'ACE| C{Action de l'ACE ?}
+    C -->|Permit| D([Paquet autorisé et traité])
+    C -->|Deny| E([Paquet rejeté/détruit])
+    
+    B -->|Pas de correspondance| F{Y a-t-il une autre ACE ?}
+    F -->|Oui| B
+    F -->|Non| G[Règle implicite : Deny Any]
+    G --> E
+    
+    classDef permit fill:#fc5666,stroke:#28a745,stroke-width:2px;
+    classDef deny fill:#fc5666,stroke:#dc3545,stroke-width:2px;
+    class D permit;
+    class E,G deny;
+```
+
 ### 2. Les ACL Étendues (Numérotées de 100 à 199)
 Elles filtrent sur **l'IP source, l'IP de destination, le protocole (IP, TCP, UDP, ICMP) et le port (source/destination)**.
 * **Pertinence :** Indispensables pour appliquer le **principe de moindre privilège**. Elles permettent d'autoriser *uniquement* le trafic strictement nécessaire (ex: requêtes HTTP/HTTPS) tout en bloquant le reste.
 * **Bonne pratique de placement :** À appliquer **le plus près possible de la source** pour bloquer le trafic indésirable avant qu'il ne consomme la bande passante du réseau.
+
+```mermaid 
+flowchart TD
+    A([Arrivée du paquet]) --> B{1. Protocole ? TCP, UDP, ICMP...}
+    B --> C{2. IP Source ?}
+    C --> D{3. IP Destination ?}
+    D --> E{4. Port cible ? ex: 80, 443}
+    
+    E -->|Toutes les conditions matchent| F{Action de l'ACE ?}
+    F -->|Permit| G([Paquet autorisé et traité])
+    F -->|Deny| H([Paquet rejeté / détruit])
+    
+    B -->|Une condition échoue| I{Autre ACE ?}
+    C -->|Une condition échoue| I
+    D -->|Une condition échoue| I
+    E -->|Une condition échoue| I
+    I -->|Oui| B
+    I -->|Non| J[Règle implicite : Deny Any]
+    J --> H
+
+    classDef permit fill:#d4edda,stroke:#28a745,stroke-width:2px;
+    classDef deny fill:#f8d7da,stroke:#dc3545,stroke-width:2px;
+    class G permit;
+    class H,J deny;
+```
 
 ---
 ## Le rôle des identifiants (Numéros et Noms)
