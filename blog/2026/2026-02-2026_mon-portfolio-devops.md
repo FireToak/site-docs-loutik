@@ -8,7 +8,7 @@ date: 2026-02-14
 
 Durant mes études en BTS SIO (Services Informatiques aux Organisations) au lycée Paul-Louis Courier de Tours, il m'a été demandé de réaliser un portfolio. Ce dernier a pour but de présenter les différentes certifications et projets que j'ai réalisés en cours ou sur mon homelab.
 
-<!-- truncate -->
+{/* truncate */}
 
 L'objectif de ce portfolio est de créer une vitrine de mes compétences informatiques, facilement modifiable dans le temps, sans nécessiter de connexion manuelle à mon serveur ni de retouches directes du code HTML. J'ai donc pensé le site avec les contraintes suivantes :
 - **Facilité d'édition :** Utilisation de fichiers JSON pour stocker les données liées à mes différents éléments.

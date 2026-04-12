@@ -11,6 +11,11 @@ kubernetes:
   permalink: /blog/tags/kubernetes
   description: "Orchestration de conteneurs, pods et services."
 
+fluxcd:
+  label: "Flux CD"
+  permalink: /blog/tags/flux-cd
+  description: "Pipeline CI/CD pour Kubernetes."
+
 k3s:
   label: "K3s"
   permalink: /blog/tags/k3s

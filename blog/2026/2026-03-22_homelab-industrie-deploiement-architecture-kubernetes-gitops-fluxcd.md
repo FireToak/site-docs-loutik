@@ -10,7 +10,7 @@ date: 2026-03-22
 
 Dans le cadre de mon projet personnel **LoutikCLOUD**, j'ai dû faire face à deux défis majeurs : comment gérer une infrastructure conteneurisée croissante sans tomber dans le piège de la "configuration manuelle" (le fameux *ClickOps*) ? Et surtout, comment restaurer rapidement une infrastructure complexe comme Kubernetes en cas de sinistre ?
 
-<!-- truncate -->
+{/* truncate */}
 
 Avec la multiplication des services (site vitrine, bot Discord, outils de surveillance), la méthode traditionnelle consistant à appliquer des commandes `kubectl` manuellement présentait trois risques critiques :
 

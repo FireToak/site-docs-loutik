@@ -8,7 +8,7 @@ date: 2026-03-08
 
 Dans l'état de l'art de la gestion d'infrastructure, disposer d'une visibilité globale en temps réel est indispensable. La supervision permet de passer d'une gestion subie à une approche proactive. Par exemple, si le tableau de bord indique que le stockage de la machine virtuelle _bd01_ (hébergeant une base MySQL) atteint 70 %, l'équipe peut anticiper et allouer de l'espace supplémentaire bien avant la saturation, évitant ainsi une interruption de service.
 
-<!-- truncate -->
+{/* truncate */}
 ---
 ## A. Présentation des outils
 
