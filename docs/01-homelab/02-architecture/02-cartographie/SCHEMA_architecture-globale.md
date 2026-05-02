@@ -17,7 +17,7 @@ sidebar_position: 1
 
 Ce schéma présente la topologie globale du projet, divisée entre une zone publique externalisée (VPS) et une zone privée locale (On-Premise) segmentée par un routeur physique OPNsense.
 
-![Architecture globale LoutikCLOUD](/img/docs/homelab/schema/schema-globale-architecture-loutik.png)
+![Architecture globale LoutikCLOUD](./assets/schema-globale-architecture-loutik.png)
 
 ### A. Zone Cloud (VPS Infomaniak)
 Il s'agit du point d'entrée public de l'infrastructure. Son rôle est de filtrer et de router le trafic légitime vers le domicile de manière sécurisée.
@@ -37,7 +37,7 @@ L'OPNsense distribue le trafic local à travers 5 réseaux logiques (VLANs) dist
 * **VLAN 40 (GATEWAY - 192.168.40.0/30) :** Fait office de SAS de sécurité. Il réceptionne la liaison inter-site VPN provenant de Tailscale.
 * **VLAN 99 (MANAGEMENT - 192.168.1.0/24) :** Réseau d'administration restreint. Il donne accès aux interfaces critiques (GUI Proxmox, administration Switch/Routeur).
 * **VLAN 10 (UTILISATEURS - 192.168.10.0/24) :** Réseau de confiance pour les équipements personnels (Postes clients, Smartphones).
-* **VLAN 20 (INFRASTRUCTURE - 192.168.20.0/24) :** Héberge les services vitaux du réseau comme le Serveur DNS interne et la stack de monitoring (Grafana, Prometheus).
+* **VLAN 20 (MONITORING - 192.168.20.0/24) :** Réseau dédié à la stack de monitoring (Grafana, Prometheus).
 * **VLAN 30 (SERVICES - 192.168.30.0/24) :** Environnement d'hébergement applicatif, contenant le Cluster K3s (Web, Outline) et les VMs Proxmox standards (ex: Jellyfin).
 
 :::info Logique de flux
